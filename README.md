@@ -13,3 +13,15 @@ Example of validation of APKBUILD files using Sparrow6 Tack Checl DSL
 ```bash
 % s6 --task-run .
 ```
+
+# Report examples
+
+
+## Maintainer ok
+
+![maintainer-ok](reports/reports/maintainer-ok.jpeg)
+
+## Maintainer broken
+
+![maintainer-negative](reports/reports/maintainer-negative.jpeg)
+

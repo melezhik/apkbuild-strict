@@ -9,7 +9,7 @@ note: Should be a well-formatted,
 note: example is: maintainer="John Snow <john_snow@thewall.net>"
 
 
-within: "maintainer=" (.*)
+within: ^^ "maintainer=" (.*) $$
 regexp: "=" \" (.*) \"
 
 generator: <<RAKU
@@ -21,13 +21,16 @@ generator: <<RAKU
   }
 RAKU
 
-regexp: "=" \" (\S+ \s* \S*) \< (<[ \w \. ] > + \@ <[ \w \. ] > + ) \>
+regexp: "=" \" (\S+ \s* \S*) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \" \s* $$ 
 
 generator: <<RAKU
 !raku
   if matched() {
     say "note: Name: ", capture()[0]; 
     say "note: Email: ", capture()[1];
+    say "assert: 1 maintainer line is not broken";
+  } else {
+    say "assert: 0 maintainer line is not broken";
   }
 RAKU
 
