@@ -21,7 +21,7 @@ generator: <<RAKU
   }
 RAKU
 
-regexp: "=" \" (\S+ \s* \S*) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \" \s* $$ 
+regexp: "=" \" (\S+ .?) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \" \s* $$ 
 
 generator: <<RAKU
 !raku

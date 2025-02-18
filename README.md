@@ -23,9 +23,13 @@ Example of validation of APKBUILD files using Sparrow6 Tack Checl DSL
 
 ## Maintainer broken
 
-Extra angle bracket 
+Extra right angle bracket 
 
-![maintainer-negative](reports/maintainer-negative.jpeg)
+![maintainer-broken-extra-right-angle-bracket](reports/maintainer-broken-extra-right-angle-bracket.jpeg)
+
+Extra left angle bracket 
+
+![maintainer-broken-extra-left-angle-bracket](reports/maintainer-broken-extra-left-angle-bracket.jpeg)
 
 Missing name
 
