@@ -35,3 +35,6 @@ Missing name
 
 ![maintainer-missing-name](reports/maintainer-missing-name.jpeg)
 
+Email is not valid
+
+![maintainer-broken-email-not-valid](reports/maintainer-broken-email-not-valid.jpeg)
