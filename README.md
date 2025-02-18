@@ -19,9 +19,9 @@ Example of validation of APKBUILD files using Sparrow6 Tack Checl DSL
 
 ## Maintainer ok
 
-![maintainer-ok](reports/reports/maintainer-ok.jpeg)
+![maintainer-ok](reports/maintainer-ok.jpeg)
 
 ## Maintainer broken
 
-![maintainer-negative](reports/reports/maintainer-negative.jpeg)
+![maintainer-negative](reports/maintainer-negative.jpeg)
 
