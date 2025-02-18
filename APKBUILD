@@ -1,7 +1,7 @@
 # Contributor: Rasmus Thomsen <oss@cogitri.dev>
 # Contributor: fossdd <fossdd@pwned.life>
 # Maintainer: Celeste <cielesti@protonmail.com>
-maintainer="Celeste <<cielesti_protonmail.com>"
+maintainer="Celeste <cielesti@protonmail.com>"
 pkgname=mautrix-whatsapp
 pkgver=0.11.3
 pkgrel=0
