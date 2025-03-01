@@ -16,7 +16,11 @@ Example of validation of APKBUILD files using Sparrow6 Task Check DSL
 
 # Parameters
 
-Check against current pkgrel version, pkgrel inside APKFILE should be greater
+## pkgrel
+
+Check against current pkgrel version, pkgrel inside APKFILE should be greater.
+
+Optional. Default value is 0.
 
 # Report examples
 
