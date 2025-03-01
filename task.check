@@ -40,3 +40,22 @@ generator: <<RAKU
 RAKU
 
 end:
+
+
+note: check pkgrel
+regexp: ^^ \s* "pkgrel=" (\d+) \s* $$
+
+generator: <<RAKU
+!raku
+  if matched() {
+    my $pkgv = capture()[0];
+    say "note: pkgrel line found: ", $pkgv;
+    if "$pkgv".Int > config()<pkgrel> {
+      say "assert: 1 pkgrel version ($pkgv) is greater then current version: {config()<pkgrel>}";
+    } else {
+      say "assert: 0 pkgrel version ($pkgv) is greater then current version: {config()<pkgrel>}";
+    }
+  } else {
+    say "assert: 0 pkgrel line found";
+  }
+RAKU

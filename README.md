@@ -11,8 +11,12 @@ Example of validation of APKBUILD files using Sparrow6 Task Check DSL
 # How to run
 
 ```bash
-% s6 --task-run .
+% s6 --task-run .@pkgrel=10
 ```
+
+# Parameters
+
+Check against current pkgrel version, pkgrel inside APKFILE should be greater
 
 # Report examples
 
