@@ -1,1 +1,1 @@
-cat APKBUILD
+cat $(config path)

@@ -8,9 +8,8 @@ note: ==========
 note: Should be a well-formatted, 
 note: example is: maintainer="John Snow <john_snow@thewall.net>"
 
-
 within: ^^ "maintainer=" (.*) $$
-regexp: "=" \" (.*) \"
+regexp: ^^ \" (.*) \" $$
 
 generator: <<RAKU
 !raku
@@ -21,7 +20,9 @@ generator: <<RAKU
   }
 RAKU
 
-regexp: "=" \" (<[ \w \s ] >+?) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \" \s* $$ 
+note: check maintainer identity
+
+regexp: (<[ \w \s ] >+?) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \s* $$ 
 
 generator: <<RAKU
 !raku
