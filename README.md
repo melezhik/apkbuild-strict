@@ -24,7 +24,7 @@ Path to apk file, optional, default value is `APKBUILD`
 # Report example
 
 ```
-a692e715a68b:~/test/apkbuild-strict$ s6 --task-run .@path=examples/APKBUILD
+$ s6 --task-run .@path=examples/APKBUILD
 19:44:36 :: [sparrowtask] - run sparrow task .@path=examples/APKBUILD
 19:44:37 :: [sparrowtask] - run [.], thing: .@path=examples/APKBUILD
 [task run: task.bash - .]
