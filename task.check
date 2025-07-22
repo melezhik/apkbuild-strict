@@ -48,7 +48,7 @@ generator: <<RAKU
 !raku
 if matched() {
   my $pkgname = capture()<>.head;
-  say "note: run apk info $pkgname command and save outout";
+  say "note: run apk info $pkgname command and save output to file (/tmp/pkg.info)";
   say q:to /BASH/.subst("%name%",$pkgname);
     code: <<CMD
     !bash

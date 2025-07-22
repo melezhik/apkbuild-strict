@@ -111,7 +111,7 @@ stdout match (w) <(<[ \w \s ] >+?) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \
 # Email: cielesti@protonmail.com
 <maintainer line is not broken> True
 stdout match <^^ "pkgname=" (\S+)> True
-# run apk info mautrix-whatsapp command and save outout
+# run apk info mautrix-whatsapp command and save output to file (/tmp/pkg.info)
 # get pkgrel from file
 stdout match <^^ \s* "pkgrel=" (\d+) \s* $$> True
 # pkgrel found: 1
