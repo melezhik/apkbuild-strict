@@ -11,7 +11,7 @@ Example of validation of APKBUILD files using Sparrow6 Task Check DSL
 # How to run
 
 ```bash
-% s6 --task-run .@pkgrel=10,path=examples/APKBUILD
+% s6 --task-run .@path=examples/APKBUILD
 ```
 
 # Parameters
