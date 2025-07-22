@@ -24,6 +24,8 @@ note: check maintainer identity
 
 regexp: (<[ \w \s ] >+?) "<" (<[ \w \. ] > + \@ <[ \w \. ] > + ) ">" \s* $$ 
 
+end:
+
 generator: <<RAKU
 !raku
   if matched() {
@@ -40,23 +42,55 @@ generator: <<RAKU
   }
 RAKU
 
-end:
+regexp: ^^ "pkgname=" (\S+)
 
+generator: <<RAKU
+!raku
+if matched() {
+  my $pkgname = capture()<>.head;
+  say "note: run apk info $pkgname command and save outout";
+  say q:to /BASH/.subst("%name%",$pkgname);
+    code: <<CMD
+    !bash
+    apk info -d %name% > /tmp/pkg.info
+    CMD 
+  BASH
+}
+RAKU
 
-note: check pkgrel
+note: get pkgrel from file
+
 regexp: ^^ \s* "pkgrel=" (\d+) \s* $$
 
 generator: <<RAKU
 !raku
   if matched() {
-    my $pkgv = capture()[0];
-    say "note: pkgrel line found: ", $pkgv;
-    if "$pkgv".Int > config()<pkgrel> {
-      say "assert: 1 pkgrel version ($pkgv) is greater then current version: {config()<pkgrel>}";
+    my $pkgrel = capture()[0];
+    say "note: pkgrel found: ", $pkgrel;
+    update_state(%( :$pkgrel ));	
+  } else {
+    say "assert: 0 pkgrel found";
+  }
+RAKU
+
+source: /tmp/pkg.info
+
+note: get pkgrel from apk info command output
+
+regexp: .*  "-" r(\S+) \s+ "description:" $$
+
+generator: <<RAKU
+!raku
+  if matched() {
+    my $pkgrel = capture()[0];
+    say "note: pkgrel found: ", $pkgrel;
+    my $apk-pkgrel = get_state()<pkgrel> || "NA";
+    if $apk-pkgrel eq "NA" {
+       say "note: could not find pkgrel in apk info command output, first time package released?";
     } else {
-      say "assert: 0 pkgrel version ($pkgv) is greater then current version: {config()<pkgrel>}";
+       say "assert: ", $apk-pkgrel ne $pkgrel, " pkgrel from file differs from pkgrel from apk info command output";
     }
   } else {
-    say "assert: 0 pkgrel line found";
+    say "assert: 0 pkgrel found";
   }
 RAKU
