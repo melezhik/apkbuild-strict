@@ -1,6 +1,9 @@
 # apkbuild-strict
 
-Example of validation of APKBUILD files using Sparrow6 Task Check DSL
+Validate APKBUILD files using Sparrow6 Task Check DSL:
+
+- verify maintainer identity
+- verify that pkgrel is set and differs from the current package version
 
 # Install
 
